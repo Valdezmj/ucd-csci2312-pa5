@@ -6,7 +6,6 @@
 #define PA5GAME_GAMEUNIT_H
 
 #include <string>
-
 #include "Game.h"
 
 namespace Gaming {

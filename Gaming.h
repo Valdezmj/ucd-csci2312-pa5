@@ -7,6 +7,7 @@
 
 #include <array>
 #include <random>
+#include <iostream>
 
 namespace Gaming {
 
@@ -23,6 +24,35 @@ namespace Gaming {
     // what a position on the game grid can be filled with
     enum PieceType { SIMPLE=0, STRATEGIC, FOOD, ADVANTAGE, INACCESSIBLE, SELF, EMPTY };
 
+    // Movement between position and index
+    static const int positionToIndex(const Position &p, const unsigned __width) {
+        int __index = 0;
+        if (p.x > 0) {
+            __index = (__width * p.x) + p.y;
+        } else {
+            __index = p.y;
+        }
+
+        std::cout << "accepting position (" << p.x << ", " << p.y << ") and turning to index - " << __index << std::endl;
+
+        return __index;
+    }
+
+    static const Position indexToPosition(const unsigned int index, const unsigned __width, const unsigned __height) {
+        if (index < __width) {
+            return Position(0, index);
+        }
+        for (int i = 0; i < __height; i++) {
+            if ((index % (__width + i)) == 0) {
+                return Position(i, 0);
+            }
+            for (int k = 0; k < __width; k++) {
+                if ((index % (__width + i + k)) == 0) {
+                    return Position(i, k);
+                }
+            }
+        }
+    }
     // a "map" of the 8 squares adjacent to a piece
     struct Surroundings {
         // encoded as an array/vector top-left row-wise bottom-right

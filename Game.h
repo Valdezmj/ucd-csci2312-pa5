@@ -64,6 +64,7 @@ namespace Gaming {
         Status getStatus() const { return __status; }
         unsigned int getRound() const { return __round; }
 
+
         // grid population methods
         bool addSimple(const Position &position);
         bool addSimple(unsigned x, unsigned y);

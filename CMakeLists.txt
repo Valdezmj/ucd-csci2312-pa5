@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.3)
-project(pa5game)
+PROJECT(pa5game)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 

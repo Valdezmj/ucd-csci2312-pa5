@@ -246,6 +246,7 @@ void test_piece_turntaking(ErrorContext &ec, unsigned int numRuns) {
             // get the Surroundings for the agent's position from the Game
             Surroundings surr = g.getSurroundings(Position(1, 1));
 
+
             // call takeTurn on the Piece pointer to the agent
             ActionType action = piece->takeTurn(surr);
 
@@ -557,7 +558,7 @@ void test_piece_turntaking(ErrorContext &ec, unsigned int numRuns) {
         }
     }
 }
-
+/*
 // Piece interaction operator*
 void test_piece_interaction(ErrorContext &ec, unsigned int numRuns) {
     bool pass;
@@ -1333,4 +1334,4 @@ void test_game_play(ErrorContext &ec, unsigned int numRuns) {
             ec.result(pass);
         }
     }
-}
+}*/
