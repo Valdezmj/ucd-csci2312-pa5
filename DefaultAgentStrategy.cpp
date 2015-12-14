@@ -38,6 +38,14 @@ namespace Gaming {
             }
         }
 
+        if (pos.empty()) {
+            for (int i = 0; i < 9; i++) {
+                if (s.array[i] == PieceType::SIMPLE) {
+                    pos.push_back(i);
+                }
+            }
+        }
+
         if (pos.size() == 0) {
             return ActionType::STAY;
         }
