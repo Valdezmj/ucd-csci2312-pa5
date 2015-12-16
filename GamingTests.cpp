@@ -281,7 +281,6 @@ void test_piece_turntaking(ErrorContext &ec, unsigned int numRuns) {
             // if there is a resource, it should ask to there
             // and so on...
             pass = (action == ActionType::S);
-            if (! pass) std::cout << action << std::endl;
 
             ec.result(pass);
         }
@@ -309,7 +308,6 @@ void test_piece_turntaking(ErrorContext &ec, unsigned int numRuns) {
             // if there is a resource, it should ask to there
             // and so on...
             pass = (action == ActionType::STAY);
-            if (! pass) std::cout << action << std::endl;
 
             ec.result(pass);
         }
@@ -362,7 +360,6 @@ void test_piece_turntaking(ErrorContext &ec, unsigned int numRuns) {
             // if there is a resource, it should ask to there
             // and so on...
             pass = (action == ActionType::S);
-            if (! pass) std::cout << action << std::endl;
 
             ec.result(pass);
         }
@@ -397,7 +394,6 @@ void test_piece_turntaking(ErrorContext &ec, unsigned int numRuns) {
                    (action == ActionType::SW) ||
                    (action == ActionType::S)  ||
                    (action == ActionType::SE);
-            if (! pass) std::cout << action << std::endl;
 
             ec.result(pass);
         }
@@ -1071,20 +1067,15 @@ void test_game_print(ErrorContext &ec, unsigned int numRuns) {
             std::smatch m;
             std::regex_search(line, m, re);
             pass = (m.size() == 1);
-            if (pass) {
-                std::cout << "passed first print test\n";
-                std::cout << m[0] << std::endl;
-            }
 //            if (! pass) std::cout << m[0] << ' ' << m[1] << ' ' << m.size() << std::endl;
             for (int i = 0; i < 3; i++) {
                 getline(ss, line);
                 std::regex re1("(\\[([[:alpha:]]{1}[[:d:]]{1,4}[ ]?|[ ]{5})\\]){3}");
                 std::regex_search(line, m, re1);
                 pass = pass && (m.size() == 3);
-                if (! pass) {
-                    std::cout << "Did not pass the second output\n";
-                    std::cout << m[0] << ' ' << m[1] << ' ' << m.size() << std::endl;
-                }
+//                if (! pass) {
+//                    std::cout << m[0] << ' ' << m[1] << ' ' << m.size() << std::endl;
+//                }
             }
             getline(ss, line);
             std::regex re2("Status:");
