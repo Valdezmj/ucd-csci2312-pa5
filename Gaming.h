@@ -32,25 +32,17 @@ namespace Gaming {
         } else {
             __index = p.y;
         }
-
-        std::cout << "accepting position (" << p.x << ", " << p.y << ") and turning to index - " << __index << std::endl;
-
         return __index;
     }
 
     static const Position indexToPosition(const unsigned int index, const unsigned __width, const unsigned __height) {
+        int x, y;
         if (index < __width) {
             return Position(0, index);
-        }
-        for (int i = 0; i < __height; i++) {
-            if ((index % (__width + i)) == 0) {
-                return Position(i, 0);
-            }
-            for (int k = 0; k < __width; k++) {
-                if ((index % (__width + i + k)) == 0) {
-                    return Position(i, k);
-                }
-            }
+        } else {
+            x = index / __width;
+            y = index % __width;
+            return Position(x,y);
         }
     }
     // a "map" of the 8 squares adjacent to a piece

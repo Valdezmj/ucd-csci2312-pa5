@@ -15,7 +15,7 @@ namespace Gaming {
 
     Strategic::~Strategic() {
         //std::cout << "Strategic derconstructor\n";
-
+        delete __strategy;
     }
 
     ActionType Strategic::takeTurn(const Surroundings &s) const {

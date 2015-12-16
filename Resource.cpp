@@ -2,6 +2,8 @@
 // Created by Michael Valdez on 12/13/15.
 //
 #include "Resource.h"
+#include "Simple.h"
+#include "Advantage.h"
 
 namespace Gaming {
 
@@ -32,16 +34,26 @@ namespace Gaming {
         }
     }
 
-    Piece& Resource::interact(Agent *) {
-
+    Piece& Resource::interact(Agent * a) {
+        if (this->getType() == PieceType::ADVANTAGE) {
+            dynamic_cast<Simple *>(a)->addEnergy(dynamic_cast<Advantage *>(this)->consume());
+        } else {
+            dynamic_cast<Simple *>(a)->addEnergy(this->consume());
+        }
+        this->finish();
+        this->__capacity = 0.0;
+        return *this;
     }
 
-    Piece& Resource::interact(Resource *) {
-
+    Piece& Resource::interact(Resource * r) {
+        return *this;
     }
 
     double Resource::consume() {
-
+        double temp = this->__capacity;
+        this->__capacity = 0.0;
+        this->finish();
+        return temp;
     }
 
     ActionType Resource::takeTurn(const Surroundings &s) const {

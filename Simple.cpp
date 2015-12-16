@@ -30,33 +30,27 @@ namespace Gaming {
                 pos.push_back(i);
             }
         }
-
+    
         if (pos.empty()) {
             for (int i = 0; i < 9; i++) {
                 if (s.array[i] == PieceType::EMPTY) {
-                    std::cout << "Adding empty spot: " << i << "\n";
                     pos.push_back(i);
                 }
             }
         }
 
         if (pos.empty()) {
-            std::cout << "Returning stay\n";
             return ActionType::STAY;
         }
         pos.shrink_to_fit();
 
         if (pos.size() == 1) {
-            std::cout << "size of pos : 1\n";
             indexToMoveTo = pos.back();
         } else {
-            std::cout << "size of pos: " << pos.size() << std::endl;
             indexToMoveTo = positionToIndex(__r(pos), __game.getWidth());
         }
-        std::cout << "index move to: " << indexToMoveTo << std::endl;
         switch (indexToMoveTo) {
             case 0:
-            std::cout << "Heading north west\n";
                 return ActionType::NW;
             case 1:
                 return ActionType::N;

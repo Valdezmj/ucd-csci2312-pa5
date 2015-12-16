@@ -9,6 +9,7 @@ namespace Gaming {
 
     Food::Food(const Game &g, const Position &p, double capacity) : Resource(g, p, capacity) {
         //std::cout << "Food constructor\n";
+        __capacity = capacity;
 
     }
     Food::~Food() {

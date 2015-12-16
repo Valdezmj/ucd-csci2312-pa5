@@ -23,9 +23,9 @@ namespace Gaming {
     }
 
     double Advantage::consume(){
-        double temp = __capacity;
+        double temp = __capacity * ADVANTAGE_MULT_FACTOR;
         __capacity = 0.0;
-        this->isFinished();
+        this->finish();
         return temp;
     }
 

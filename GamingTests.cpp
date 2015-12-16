@@ -558,7 +558,7 @@ void test_piece_turntaking(ErrorContext &ec, unsigned int numRuns) {
         }
     }
 }
-/*
+
 // Piece interaction operator*
 void test_piece_interaction(ErrorContext &ec, unsigned int numRuns) {
     bool pass;
@@ -688,7 +688,6 @@ void test_surroundings_smoketest(ErrorContext &ec) {
 
         pass = (ss0.str() == "4 4 4 4 5 6 4 1 6 ");
         if (! pass) std::cout << ss0.str() << std::endl;
-
         // The surroundings of the strategic agent
         surr = g.getSurroundings(p1);
         std::stringstream ss1;
@@ -853,10 +852,12 @@ void test_action_smoketest(ErrorContext &ec) {
 
         pass = pass && (p0.x == ne.x) && (p0.y == ne.y-1);
 
+
         p0 = (g.isLegal(ActionType::SE, ne)) ?
              g.move(ne, ActionType::SE) : ne;
 
         pass = pass && (p0.x == ne.x) && (p0.y == ne.y);
+
     }
     ec.result(pass);
 
@@ -969,10 +970,8 @@ void test_game_populate(ErrorContext &ec, unsigned int numRuns) {
             pass = pass && g.addAdvantage(2, 2);
             pass = pass && g.addSimple(4, 3);
             pass = pass && g.addAdvantage(2, 3);
-
             pass = pass && (! g.addFood(4, 3));
             pass = pass && (! g.addStrategic(0, 2));
-
             pass = pass &&
                           (g.getNumPieces() == 7) &&
                           (g.getNumAgents() == 3) &&
@@ -1072,15 +1071,20 @@ void test_game_print(ErrorContext &ec, unsigned int numRuns) {
             std::smatch m;
             std::regex_search(line, m, re);
             pass = (m.size() == 1);
+            if (pass) {
+                std::cout << "passed first print test\n";
+                std::cout << m[0] << std::endl;
+            }
 //            if (! pass) std::cout << m[0] << ' ' << m[1] << ' ' << m.size() << std::endl;
             for (int i = 0; i < 3; i++) {
                 getline(ss, line);
                 std::regex re1("(\\[([[:alpha:]]{1}[[:d:]]{1,4}[ ]?|[ ]{5})\\]){3}");
                 std::regex_search(line, m, re1);
                 pass = pass && (m.size() == 3);
-//                if (! pass) {
-//                    std::cout << m[0] << ' ' << m[1] << ' ' << m.size() << std::endl;
-//                }
+                if (! pass) {
+                    std::cout << "Did not pass the second output\n";
+                    std::cout << m[0] << ' ' << m[1] << ' ' << m.size() << std::endl;
+                }
             }
             getline(ss, line);
             std::regex re2("Status:");
@@ -1334,4 +1338,4 @@ void test_game_play(ErrorContext &ec, unsigned int numRuns) {
             ec.result(pass);
         }
     }
-}*/
+}
