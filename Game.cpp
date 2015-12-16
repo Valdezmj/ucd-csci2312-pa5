@@ -301,7 +301,8 @@ namespace Gaming {
                 temp.x = i;
                 temp.y = k;
                 if (__grid[positionToIndex(temp, __width)] != nullptr) {
-                    if (__grid[positionToIndex(temp, __width)]->getType() == PieceType::SIMPLE || __grid[positionToIndex(temp, __width)]->getType() == PieceType::STRATEGIC) {
+                    if (__grid[positionToIndex(temp, __width)]->getType() == PieceType::SIMPLE ||
+                            __grid[positionToIndex(temp, __width)]->getType() == PieceType::STRATEGIC) {
                         count++;
                     }
                 }
@@ -479,7 +480,10 @@ namespace Gaming {
                 temp.x = i;
                 temp.y = k;
                 if (__grid[positionToIndex(temp, __width)] != nullptr) {
-                    if (__grid[positionToIndex(temp, __width)]->getType() == PieceType::ADVANTAGE || __grid[positionToIndex(temp, __width)]->getType() == PieceType::SIMPLE || __grid[positionToIndex(temp, __width)]->getType() == PieceType::FOOD || __grid[positionToIndex(temp, __width)]->getType() == PieceType::STRATEGIC) {
+                    if (__grid[positionToIndex(temp, __width)]->getType() == PieceType::ADVANTAGE ||
+                            __grid[positionToIndex(temp, __width)]->getType() == PieceType::SIMPLE ||
+                            __grid[positionToIndex(temp, __width)]->getType() == PieceType::FOOD ||
+                            __grid[positionToIndex(temp, __width)]->getType() == PieceType::STRATEGIC) {
                         count++;
                     }
                 }
@@ -496,7 +500,8 @@ namespace Gaming {
                 temp.x = i;
                 temp.y = k;
                 if (__grid[positionToIndex(temp, __width)] != nullptr) {
-                    if (__grid[positionToIndex(temp, __width)]->getType() == PieceType::ADVANTAGE || __grid[positionToIndex(temp, __width)]->getType() == PieceType::FOOD) {
+                    if (__grid[positionToIndex(temp, __width)]->getType() == PieceType::ADVANTAGE ||
+                            __grid[positionToIndex(temp, __width)]->getType() == PieceType::FOOD) {
                         count++;
                     }
                 }
@@ -516,8 +521,10 @@ namespace Gaming {
                 os << "[";
                 std::cout << "[";
                 if (game.__grid[positionToIndex(temp, game.__width)] != nullptr) {
-                   os << *(game.__grid[positionToIndex(temp, game.__width)]) << std::setw(2) << std::setfill(' ') << "]";
-                    std::cout  << *(game.__grid[positionToIndex(temp, game.__width)]) << std::setw(2) << std::setfill(' ') << "]";
+                   os << *(game.__grid[positionToIndex(temp, game.__width)]) <<
+                           std::setw(2) << std::setfill(' ') << "]";
+                    std::cout  << *(game.__grid[positionToIndex(temp, game.__width)]) << std::setw(2) <<
+                            std::setfill(' ') << "]";
                 } else {
                     os << std::setw(6) << std::setfill (' ') << "]";
                     std::cout << std::setw(6) << std::setfill (' ') << "]";

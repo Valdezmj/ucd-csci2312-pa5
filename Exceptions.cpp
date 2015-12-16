@@ -59,8 +59,8 @@ namespace Gaming {
         os << "Suggest making sure you pass in correct bounds\n";
     }
 
-    OutOfBoundsEx::OutOfBoundsEx(unsigned maxWidth, unsigned maxHeight, unsigned width, unsigned height) : DimensionEx(width, height, maxWidth,
-                                                                                                                       maxHeight) {
+    OutOfBoundsEx::OutOfBoundsEx(unsigned maxWidth, unsigned maxHeight, unsigned width, unsigned height) :
+            DimensionEx(width, height, maxWidth, maxHeight) {
         setName("OutOfBoundsEx");
     }
 }
